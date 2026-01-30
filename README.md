@@ -1,1 +1,1 @@
-# lso
+# Lso Bazylika Gorlice
