@@ -588,3 +588,15 @@ header {
         border-radius: 0;
     }
 }
+
+
+@media (max-width: 480px) {
+
+    .burger {
+        margin-right: 20px;
+    }
+
+    h1 {
+        font-size: 23px;
+    }
+}
