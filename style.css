@@ -1,6 +1,3 @@
-* {
-    -webkit-tap-highlight-color: transparent;
-}
 
 body {
     margin: 0;
@@ -650,6 +647,7 @@ header {
         margin-right: 5%;
     }
 }
+
 
 
 
