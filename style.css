@@ -165,6 +165,7 @@ img {
 
 .sluzenie {
     margin: 5% 10%;
+    margin-top: 0;
 }
 
 /* Galeria */
@@ -646,4 +647,5 @@ header {
         margin-right: 5%;
     }
 }
+
 
