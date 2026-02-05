@@ -626,3 +626,28 @@ main {
         display: flex;
     }
 }
+
+/* MENU MOBILNE */
+@media (max-width: 1000px) {
+    .menu {
+        display: none;
+    }
+
+    .menu.active {
+        display: flex;
+    }
+}
+
+/* TABELA – MAŁE EKRANY */
+.table-wrapper {
+    overflow-x: auto;
+    width: 100%;
+}
+
+/* MARGINESY MOBILE */
+@media (max-width: 600px) {
+    main {
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+}
