@@ -616,3 +616,13 @@ body {
 main {
     flex: 1;
 }
+
+@media (max-width: 1000px) {
+    .menu {
+        display: none;
+    }
+
+    .menu.active {
+        display: flex;
+    }
+}
