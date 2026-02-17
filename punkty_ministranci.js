@@ -13,7 +13,7 @@ const ministranci = [
     { name: "Nikodem Obrzut", points: 10 },
     { name: "Miłosz Smoła", points: 33 },
     { name: "Antoni Szary", points: 34 },
-    { name: "Antoni Śluzarz", points: 31 },
+    { name: "Antoni Ślusarz", points: 31 },
     { name: "Antoni Tajak", points: 28 },
     { name: "Jakub Filuś", points: -33 },
     { name: "Gabriel Wojna", points: 14 }
@@ -74,3 +74,4 @@ sortSelect.addEventListener("change", renderTable);
 
 // ===== START =====
 renderTable();
+
