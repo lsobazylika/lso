@@ -27,7 +27,7 @@ const ministranci = [
     { name: "Bartosz Sieradzki", points: 196 },
     { name: "Michał Ślęzak", points: 45 },
     { name: "Jakub Zastępa", points: 40 },
-    { name: "Mateusz Machowski", points: 85 },
+    { name: "Mateusz Machowski", points: 85 }
 ];
 
 // ===== ELEMENTY DOM =====
