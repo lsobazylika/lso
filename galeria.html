@@ -30,60 +30,11 @@
     </div>
 
     <i class="fa-solid fa-bars fa-2x burger" id="burger" style="display: none;"></i>
-    <nav class="menu">
-        <a href="regulamin.html">Regulamin</a>
-
-        <div class="dropnown">
-            <a href="#" tabindex="0">Triduum<span class="arrow">  ▼</span></a>
-            <ul>
-                <li><a href="triduum_asysty.html">Asysty</a></li>
-                <li><a href="triduum_czuwania.html">Czuwania</a></li>
-                <li><a href="triduum_informacje.html">Infomacje</a></li>
-            </ul>
-        </div>
-        <div class="dropnown">
-            <a href="#" tabindex="0">Punkty<span class="arrow">▼</span></a>
-            <ul>
-                <li><a href="punkty_zasady.html">Punkty Zasady</a></li>
-                <li><a href="punkty_ministranci.html">Punkty Ministranci</a></li>
-                <li><a href="punkty_lektorzy.html">Punkty Lektorzy</a></li>
-            </ul>
-        </div>
-
-        <div class="dropnown">
-            <a href="#" tabindex="0">Służenie<span class="arrow">▼</span></a>
-            <ul>
-                <li><a href="sluzenie_lektorzy.html">Służenie Ministranci</a></li>
-                <li><a href="sluzenie_lektorzy.html">Służenie Lektorzy</a></li>
-            </ul>
-        </div>
-
-        <a href="galeria.html">Galeria</a>
-        <a href="kontakt.html">Kontakt</a>
-    </nav>
+    <div id="menu"></div>
 </header>
 
 
 <main id="gallery-container">
-
-            <!-- ================= WYDARZENIE ================= -->
-    <section class="event">
-        <h3>XXX Jubileuszowe Mistrzostwa Liturgicznej Służby Ołtarza Diecezji Rzeszowskiej w Piłce Nożnej o Puchar Biskupa Jana Wątroby w kategorii wiekowej Lektor Młodszy</h3>
-
-        <div class="gallery-grid">
-            <div class="gallery-item"><img src="images/galeria/XXX_Mistrzostwa_Nożna_LMłodszy/1.jpg" loading="lazy"></div>
-            <div class="gallery-item"><img src="images/galeria/XXX_Mistrzostwa_Nożna_LMłodszy/2.jpg" loading="lazy"></div>
-            <div class="gallery-item"><img src="images/galeria/XXX_Mistrzostwa_Nożna_LMłodszy/3.jpg" loading="lazy"></div>
-            <div class="gallery-item"><img src="images/galeria/XXX_Mistrzostwa_Nożna_LMłodszy/4.jpg" loading="lazy"></div>
-            <div class="gallery-item"><img src="images/galeria/XXX_Mistrzostwa_Nożna_LMłodszy/5.jpg" loading="lazy"></div>
-            <div class="gallery-item"><img src="images/galeria/XXX_Mistrzostwa_Nożna_LMłodszy/6.jpg" loading="lazy"></div>
-            <div class="gallery-item"><img src="images/galeria/XXX_Mistrzostwa_Nożna_LMłodszy/7.jpg" loading="lazy"></div>
-            <div class="gallery-item"><img src="images/galeria/XXX_Mistrzostwa_Nożna_LMłodszy/8.jpg" loading="lazy"></div>
-            <div class="gallery-item"><img src="images/galeria/XXX_Mistrzostwa_Nożna_LMłodszy/9.jpg" loading="lazy"></div>
-            <div class="gallery-item"><img src="images/galeria/XXX_Mistrzostwa_Nożna_LMłodszy/10.jpg" loading="lazy"></div>
-            <div class="gallery-item"><img src="images/galeria/XXX_Mistrzostwa_Nożna_LMłodszy/11.jpg" loading="lazy"></div>
-        </div>
-    </section>
 
         <!-- ================= WYDARZENIE ================= -->
     <section class="event">
@@ -230,7 +181,12 @@
 
 <script src="galeria.js"></script>
 <script src="menu.js"></script>
+
+<script>
+fetch("menu.html")
+.then(res => res.text())
+.then(data => document.getElementById("menu").innerHTML = data);
+</script>
+
 </body>
 </html>
-
-

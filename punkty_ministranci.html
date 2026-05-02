@@ -30,43 +30,13 @@
     </div>
 
     <i class="fa-solid fa-bars fa-2x burger" id="burger" style="display: none;"></i>
-    <nav class="menu">
-        <a href="regulamin.html">Regulamin</a>
-        <div class="dropnown">
-            <a href="#" tabindex="0">Triduum<span class="arrow">  ▼</span></a>
-            <ul>
-                <li><a href="triduum_asysty.html">Asysty</a></li>
-                <li><a href="triduum_czuwania.html">Czuwania</a></li>
-                <li><a href="triduum_informacje.html">Infomacje</a></li>
-            </ul>
-        </div>
-
-        <div class="dropnown">
-            <a href="#" tabindex="0">Punkty<span class="arrow">▼</span></a>
-            <ul>
-                <li><a href="punkty_zasady.html">Punkty Zasady</a></li>
-                <li><a href="punkty_ministranci.html">Punkty Ministranci</a></li>
-                <li><a href="punkty_lektorzy.html">Punkty Lektorzy</a></li>
-            </ul>
-        </div>
-
-        <div class="dropnown">
-            <a href="#" tabindex="0">Służenie<span class="arrow">▼</span></a>
-            <ul>
-                <li><a href="sluzenie_ministranci.html">Służenie Ministranci</a></li>
-                <li><a href="sluzenie_lektorzy.html">Służenie Lektorzy</a></li>
-            </ul>
-        </div>
-
-        <a href="galeria.html">Galeria</a>
-        <a href="kontakt.html">Kontakt</a>
-    </nav>
+    <div id="menu"></div>
 </header>
 
 <main>
     <section>
         <h3>Punkty policzone za okres:</h3>
-        <p>1.12.2025 - 05.04.2026</p>
+        <p>1.12.2025 - 31.01.2026</p>
     </section>
     <section>
         <input type="text" id="search" placeholder="Szukaj ministranta...">
@@ -99,6 +69,12 @@
 
 <script src="punkty_ministranci.js"></script>
 <script src="menu.js"></script>
+
+<script>
+fetch("menu.html")
+.then(res => res.text())
+.then(data => document.getElementById("menu").innerHTML = data);
+</script>
+
 </body>
 </html>
-

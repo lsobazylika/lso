@@ -1,22 +1,22 @@
 const ministranci = [
-    { name: "Hubert Fejkiel", points: 121 },
-    { name: "Jan Fejkiel", points: 152 },
-    { name: "Aleksander Filipek", points: 346 },
-    { name: "Antoni Gniady", points: 180 },
-    { name: "Julian Gniady", points: 182 },
-    { name: "Kacper Gwóźdź", points: 12 },
-    { name: "Paweł Janusz", points: 45 },
-    { name: "Kacper Kandler", points: 166 },
-    { name: "Sebastian Kmiecik", points: 83 },
-    { name: "Karol Kuliński", points: 158 },
-    { name: "Karol Mrozek", points: 106 },
-    { name: "Nikodem Obrzut", points: 50 },
-    { name: "Miłosz Smoła", points: 84 },
-    { name: "Antoni Szary", points: 91 },
-    { name: "Antoni Ślusarz", points: 106 },
-    { name: "Antoni Tajak", points: 179 },
-    { name: "Jakub Filuś", points: -47 },
-    { name: "Gabriel Wojna", points: 88 }
+    { name: "Hubert Fejkiel", points: 20 },
+    { name: "Jan Fejkiel", points: 29 },
+    { name: "Aleksander Filipek", points: 115 },
+    { name: "Antoni Gniady", points: 35 },
+    { name: "Julian Gniady", points: 30 },
+    { name: "Kacper Gwóźdź", points: 10 },
+    { name: "Paweł Janusz", points: 17 },
+    { name: "Kacper Kandler", points: 38 },
+    { name: "Sebastian Kmiecik", points: 5 },
+    { name: "Karol Kuliński", points: 50 },
+    { name: "Karol Mrozek", points: 21 },
+    { name: "Nikodem Obrzut", points: 10 },
+    { name: "Miłosz Smoła", points: 33 },
+    { name: "Antoni Szary", points: 34 },
+    { name: "Antoni Śluzarz", points: 31 },
+    { name: "Antoni Tajak", points: 28 },
+    { name: "Jakub Filuś", points: -33 },
+    { name: "Gabriel Wojna", points: 14 }
 ];
 
 // ===== ELEMENTY DOM =====
@@ -74,5 +74,3 @@ sortSelect.addEventListener("change", renderTable);
 
 // ===== START =====
 renderTable();
-
-
