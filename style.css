@@ -107,6 +107,42 @@ img {
 }
 
 /* formularz */
+#contact-form {
+    background: #ffffff;
+    padding: 5px 20px 20px 20px;
+    margin-bottom: 60px;
+    border-radius: 22px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+    border-left: 6px solid #38bdf8;
+}
+
+#contact-form label {
+    display: block;
+    text-align: center;
+    font-size: 13px;
+    font-weight: 600;
+    color: #3b3b3b;
+    margin-bottom: 6px;
+}
+
+#contact-form input,
+#contact-form textarea,
+#contact-form select {
+    width: 100%;
+    padding: 9px 12px;
+    font-size: 14px;
+    color: #333;
+    background-color: #ffffff;
+    border: 1px solid #c6c6c6;
+    border-radius: 6px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+#contact-form select {
+    margin: 0;
+}
+
 
 #form {
     background: #ffffff;
