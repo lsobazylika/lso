@@ -32,7 +32,7 @@
 
     <i class="fa-solid fa-bars fa-2x burger" id="burger" style="display: none;"></i>
 
-<i class="fa-solid fa-bars fa-2x burger" id="burger" style="display: none;"></i>
+
     <div id="menu"></div>
 </header>
 
@@ -117,6 +117,37 @@ document.getElementById("contact-form").addEventListener("submit", async (e) => 
     status.style.color = "red";
     console.error(err);
   }
+});
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    fetch("menu.html")
+        .then(res => res.text())
+        .then(data => {
+            const container = document.getElementById("menu");
+            if (!container) return;
+            container.innerHTML = data;
+
+            const burger = document.getElementById("burger");
+            const menu = document.querySelector(".menu");
+
+            if (burger && menu) {
+                burger.addEventListener("click", () => {
+                    menu.classList.toggle("active");
+                });
+            }
+
+            // FIX: dropdown na telefonie (klik zamiast hover)
+            document.querySelectorAll(".dropdown > a").forEach(el => {
+                el.addEventListener("click", (e) => {
+                    if (window.innerWidth <= 1000) {
+                        e.preventDefault();
+                        const parent = el.parentElement;
+                        parent.classList.toggle("open");
+                    }
+                });
+            });
+        });
 });
 </script>
 </body>

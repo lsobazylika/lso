@@ -63,7 +63,7 @@
     </article>
     <article id="stopka_prawa">
         <a href="https://www.facebook.com/lsobazylikagorlice"><i class="fa-brands fa-facebook fa-lg"></i></a>
-        <a href="https://drive.google.com/drive/folders/1EGVS2djbNWTSWDxH6ZxScjtFW2O3RdhO?usp=sharing"><i class="fa-solid fa-cloud-arrow-up fa-lg"></i></a>
+        <a href="https://drive.google.com/drive/folders/13uIARSFFWMOzibHzz3UxymV4YOIQAuh6"><i class="fa-solid fa-cloud-arrow-up fa-lg"></i></a>
     </article>
 </footer>
 
@@ -74,6 +74,39 @@
 fetch("menu.html")
 .then(res => res.text())
 .then(data => document.getElementById("menu").innerHTML = data);
+</script>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    fetch("menu.html")
+        .then(res => res.text())
+        .then(data => {
+            const container = document.getElementById("menu");
+            if (!container) return;
+            container.innerHTML = data;
+
+            const burger = document.getElementById("burger");
+            const menu = document.querySelector(".menu");
+
+            if (burger && menu) {
+                burger.addEventListener("click", () => {
+                    menu.classList.toggle("active");
+                });
+            }
+
+            // FIX: dropdown na telefonie (klik zamiast hover)
+            document.querySelectorAll(".dropdown > a").forEach(el => {
+                el.addEventListener("click", (e) => {
+                    if (window.innerWidth <= 1000) {
+                        e.preventDefault();
+                        const parent = el.parentElement;
+                        parent.classList.toggle("open");
+                    }
+                });
+            });
+        });
+});
 </script>
 
 </body>

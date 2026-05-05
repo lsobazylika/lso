@@ -24,3 +24,34 @@
         <a href="galeria.html">Galeria</a>
         <a href="kontakt.html">Kontakt</a>
     </nav>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    fetch("menu.html")
+        .then(res => res.text())
+        .then(data => {
+            const container = document.getElementById("menu");
+            if (!container) return;
+            container.innerHTML = data;
+
+            const burger = document.getElementById("burger");
+            const menu = document.querySelector(".menu");
+
+            if (burger && menu) {
+                burger.addEventListener("click", () => {
+                    menu.classList.toggle("active");
+                });
+            }
+
+            // FIX: dropdown na telefonie (klik zamiast hover)
+            document.querySelectorAll(".dropdown > a").forEach(el => {
+                el.addEventListener("click", (e) => {
+                    if (window.innerWidth <= 1000) {
+                        e.preventDefault();
+                        const parent = el.parentElement;
+                        parent.classList.toggle("open");
+                    }
+                });
+            });
+        });
+});
+</script>
