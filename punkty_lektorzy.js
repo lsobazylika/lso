@@ -1,4 +1,4 @@
-const ministranci = [ 
+const ministranci = [
     { name: "Dawid Czyżyk", points: 181 },
     { name: "Filip Fejkiel", points: 229 },
     { name: "Mikołaj Gniady", points: 231 },
