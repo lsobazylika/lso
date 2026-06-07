@@ -1,21 +1,21 @@
 const ministranci = [
-    { name: "Hubert Fejkiel", points: 146 },
-    { name: "Jan Fejkiel", points: 172 },
-    { name: "Aleksander Filipek", points: 406 },
-    { name: "Antoni Gniady", points: 200 },
-    { name: "Julian Gniady", points: 198 },
-    { name: "Kacper Gwóźdź", points: 16 },
-    { name: "Paweł Janusz", points: 60 },
-    { name: "Kacper Kandler", points: 185 },
-    { name: "Sebastian Kmiecik", points: 85 },
-    { name: "Karol Kuliński", points: 162 },
-    { name: "Karol Mrozek", points: 95 },
-    { name: "Nikodem Obrzut", points: 64 },
-    { name: "Miłosz Smoła", points: 105 },
-    { name: "Antoni Szary", points: 104 },
-    { name: "Antoni Śluzarz", points: 119 },
-    { name: "Antoni Tajak", points: 199 },
-    { name: "Gabriel Wojna", points: 94 }
+    { name: "Hubert Fejkiel", points: 187 },
+    { name: "Jan Fejkiel", points: 204 },
+    { name: "Aleksander Filipek", points: 510 },
+    { name: "Antoni Gniady", points: 234 },
+    { name: "Julian Gniady", points: 224 },
+    { name: "Kacper Gwóźdź", points: 42 },
+    { name: "Paweł Janusz", points: 83 },
+    { name: "Kacper Kandler", points: 199 },
+    { name: "Sebastian Kmiecik", points: 93 },
+    { name: "Karol Kuliński", points: 205 },
+    { name: "Karol Mrozek", points: 96 },
+    { name: "Nikodem Obrzut", points: 95 },
+    { name: "Miłosz Smoła", points: 125 },
+    { name: "Antoni Szary", points: 132 },
+    { name: "Antoni Śluzarz", points: 135 },
+    { name: "Antoni Tajak", points: 221 },
+    { name: "Gabriel Wojna", points: 122 }
 ];
 
 // ===== ELEMENTY DOM =====
