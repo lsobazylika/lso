@@ -1,0 +1,732 @@
+/* ==========================================================================
+   1. ZMIENNE I RESET STYLÓW
+   ========================================================================== */
+:root {
+    --main-font: 'Georgia', serif;
+    --gold: #b5892d;
+    --gold-light: #ffd685;
+    --maroon: #800000;
+    --bg-cream: #f4f1ea;
+    --dark-section: #16110c;
+    --white: #ffffff;
+    --text-dark: #2a241e;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html {
+    scroll-behavior: smooth;
+    height: 100%;
+}
+body {
+    min-height: 100%;
+    font-family: var(--main-font);
+    background: var(--bg-cream);
+    background-image: 
+        radial-gradient(circle at 50% -20%, rgba(181, 137, 45, 0.15) 0%, transparent 50%),
+        url("tlo_glowne.png");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: var(--text-dark);
+    display: flex;
+    flex-direction: column;
+    padding-top: 80px;
+    overflow-x: hidden;
+}
+body.no-scroll {
+    overflow: hidden;
+}
+a,
+button,
+div {
+    -webkit-tap-highlight-color: transparent;
+}
+/* ==========================================================================
+   2. ELEMENTY GLOBALNE I TYPOGRAFIA
+   ========================================================================== */
+h3 {
+    color: var(--gold);
+    text-transform: uppercase;
+    font-size: 22px;
+    border-bottom: 1px solid rgba(181, 137, 45, 0.3) !important;
+    padding-bottom: 12px !important;
+    margin-bottom: 20px !important;
+}
+::-webkit-scrollbar { 
+    width: 10px; 
+}
+::-webkit-scrollbar-track { 
+    background: var(--bg-cream); 
+}
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, var(--gold), var(--maroon));
+    border-radius: 10px;
+}
+/* ==========================================================================
+   3. NAGŁÓWEK I NAWIGACJA (PC)
+   ========================================================================== */
+header, .header-left {
+    overflow: visible !important;
+}
+header {
+    width: 100%;
+    height:100px;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    background-color: rgba(22, 17, 12, 0.95);
+    background-image: url("tlo_nawigacja.png");
+    background-size: 100% 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5%;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+}
+.header-left img {
+    height: 140px !important;
+    width: auto;
+    position: relative;
+    top: 25px !important;
+    z-index: 10001;
+    filter: drop-shadow(0px 8px 15px rgba(0, 0, 0, 0.4)) !important;
+    transition: transform 0.3s ease;
+}
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 6px;
+    cursor: pointer;
+    z-index: 10005;
+    padding: 10px;
+    margin-right: 5%;
+}
+.hamburger span {
+    width: 30px;
+    height: 3px;
+    background: #b5892d;
+    transition: 0.3s ease;
+    border-radius: 2px;
+}
+.menu {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    margin-right: 5%;
+}
+.menu a {
+    padding: 0 15px;
+    text-decoration: none;
+    color: #e3dac9;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 13px;
+    letter-spacing: 1.5px;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+    display: flex;
+    align-items: center;
+    height: 100%;
+    transition: color 0.3s ease;
+}
+.menu a:hover {
+    color: var(--gold-light);
+}
+.dropnown {
+    position: relative;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+.dropnown ul {
+    position: absolute;
+    top: 65px;
+    right: 0;
+    width: 250px;
+    background: rgba(255, 255, 255, 0.98);
+    border-top: 3px solid var(--gold);
+    list-style: none;
+    padding: 10px 0;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    display: block !important;
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(15px);
+    transition: all 0.3s ease;
+    z-index: 10001;
+}
+.dropnown:hover ul, 
+.dropnown.open ul {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+}
+.dropnown ul li a {
+    color: var(--text-dark);
+    text-shadow: none;
+    text-transform: none;
+    padding: 12px 20px;
+    display: block;
+    height: auto;
+}
+.dropnown ul li a:hover {
+    background: #f8f5f0;
+    color: var(--maroon);
+}
+.arrow {
+    display: inline-block;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    margin-left: 5px;
+    font-size: 10px;
+    vertical-align: middle;
+}
+.dropnown:hover .arrow {
+    transform: rotate(180deg);
+    color: var(--gold-light);
+}
+.dropnown.open .arrow {
+    transform: rotate(180deg);
+}
+/* ==========================================================================
+   4. STRUKTURA GŁÓWNA I SEKCJE (MAIN)
+   ========================================================================== */
+main {
+    width: 90%;
+    max-width: 1400px;
+    margin: 30px auto;
+    flex: 1;
+}
+#left-column { width: 66%; float: left; }
+#right-column { width: 30%; float: right; }
+main::after { content: ""; display: table; clear: both; }
+section {
+    background: var(--dark-section) !important;
+    color: #f5ebd7 !important;
+    padding: 30px;
+    margin-bottom: 40px;
+    border-radius: 12px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+    border: 1px solid #2a1f15 !important;
+    border-left: 5px solid var(--gold) !important;
+    transition: transform 0.3s ease;
+}
+#okres_liturgiczny_tel {
+    display: none !important;
+}
+.event, #okres_liturgiczny_tel, #okres_liturgiczny_pc, #right-column section {
+    background: var(--dark-section) !important;
+    color: #f5ebd7 !important;
+    border: 1px solid #2a1f15 !important;
+    border-left: 5px solid var(--gold) !important;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+.event h3, #okres_liturgiczny_tel, #okres_liturgiczny_pc h3, #right-column section h3 {
+    color: var(--gold-light);
+}
+#right-column section {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center; 
+    text-align: center;
+    padding: 40px 20px !important;
+    min-height: 280px;
+    gap: 15px;
+}
+#right-column section h3 {
+    margin-bottom: 10px;
+    padding: 0;
+    border: none;
+}
+#right-column section i {
+    color: var(--gold-light) !important;
+    text-shadow: 0px 2px 4px rgba(0,0,0,0.5);
+    font-size: 55px !important;
+    margin-bottom: 5px;
+}
+#right-column section button {
+    width: auto;
+    min-width: 160px; 
+    margin: 0 auto;
+}
+.event {
+    display: flex;
+    flex-direction: column;
+    padding: 45px !important; 
+}
+.event h3 {
+    margin-bottom: 25px; 
+    line-height: 1.4;
+    border-bottom: 1px solid rgba(181, 137, 45, 0.2); 
+    padding-bottom: 15px;
+}
+.event p {
+    font-size: 16px;
+    line-height: 1.8; 
+    color: #f5ebd7;
+    text-align: justify;
+    margin-bottom: 35px; 
+    padding: 0 5px; 
+    font-style: italic; 
+}
+.event .gallery-grid {
+    margin-top: 10px; 
+    border-top: 1px solid rgba(255, 255, 255, 0.05); 
+    padding-top: 25px;
+}
+/* ==========================================================================
+   5. TABELE
+   ========================================================================== */
+.table-wrapper { 
+    overflow-x: auto; 
+    margin: 15px 0; 
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--dark-section);
+    color: #dfd5c6;
+    border-radius: 8px;
+    overflow: hidden;
+}
+table th {
+    background: #2a1f15;
+    color: var(--gold-light);
+    padding: 15px;
+    border-bottom: 2px solid var(--gold);
+}
+table td {
+    padding: 12px;
+    border: 1px solid #231910;
+    text-align: center;
+}
+/* ==========================================================================
+   6. FORMULARZE I ELEMENTY INTERAKTYWNE
+   ========================================================================== */
+#contact-form, #form {
+    background: var(--dark-section) !important;
+    color: #f5ebd7 !important;
+    border: 1px solid #2a1f15 !important;
+    border-left: 6px solid var(--gold) !important;
+    padding: 50px !important;
+    margin-top: 40px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.4) !important;
+}
+#form h3 {
+    text-align: center;
+    border-bottom: 1px solid rgba(181, 137, 45, 0.2);
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+}
+#form label {
+    color: var(--gold-light);
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 13px;
+    letter-spacing: 1px;
+}
+input, textarea, select {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #d4c5a1;
+    border-radius: 8px;
+    background: #fcfbf7;
+}
+#form input, #form textarea {
+    background: #110b07 !important;
+    border: 1px solid #33261a !important;
+    color: #dfd5c6 !important;
+    padding: 15px;
+    border-radius: 4px;
+    margin-bottom: 25px;
+    transition: var(--transition);
+}
+#form input:focus, #form textarea:focus {
+    border-color: var(--gold) !important;
+    box-shadow: 0 0 10px rgba(181, 137, 45, 0.2) !important;
+    outline: none;
+}
+button {
+    background: linear-gradient(135deg, var(--gold), #8e6b23);
+    color: white;
+    border: none;
+    padding: 14px 35px;
+    border-radius: 50px;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: 0.3s;
+}
+button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(181, 137, 45, 0.4);
+}
+#form button {
+    width: 100%;
+    max-width: 200px;
+    display: block;
+    margin: 0 auto;
+}
+#kontakt_numery {
+    background: var(--dark-section) !important;
+    border-left: 5px solid var(--gold) !important;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    padding: 40px !important;
+    text-align: center;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.4) !important;
+}
+#kontakt_numery article {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid rgba(181, 137, 45, 0.1);
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), 
+                box-shadow 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+#kontakt_numery article:hover {
+    transform: scale(1.03);
+    box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3);
+    cursor: pointer;
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+                box-shadow 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+#kontakt_numery h3 {
+    border-bottom: none !important;
+    padding-bottom: 0 !important;
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: var(--gold-light) !important;
+}
+#kontakt_numery a {
+    color: #dfd5c6 !important;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 20px;
+    letter-spacing: 1px;
+    transition: var(--transition);
+    display: inline-block;
+    padding: 5px 15px;
+    border: 1px solid transparent;
+}
+#kontakt_numery a:hover {
+    color: var(--gold-light) !important;
+    transform: scale(1.05);
+    text-shadow: 0 0 10px rgba(181, 137, 45, 0.5);
+}
+/* ==========================================================================
+   7. GALERIA I LIGHTBOX
+   ========================================================================== */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 15px;
+}
+.gallery-item {
+    aspect-ratio: 4/3;
+    overflow: hidden;
+    border: 2px solid var(--gold);
+    cursor: pointer;
+}
+.gallery-item img { 
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+    filter: blur(0.7px) brightness(0.70); 
+    will-change: filter; 
+    transition: filter 0.4s ease, transform 0.4s ease;
+}
+.gallery-item:hover img { 
+    filter: blur(0) brightness(1);
+    transform: scale(1.03); 
+}
+.lightbox {
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.95); 
+    display: none; 
+    justify-content: center;
+    align-items: center;
+    z-index: 10000; 
+    backdrop-filter: blur(5px);
+    cursor: zoom-out;
+}
+.lightbox.active {
+    display: flex;
+    animation: fadeIn 0.3s ease;
+}
+.lightbox-img {
+    max-width: 90%;
+    max-height: 80%;
+    border: 3px solid var(--gold);
+    border-radius: 4px;
+    box-shadow: 0 0 40px rgba(181, 137, 45, 0.3);
+    object-fit: contain; 
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+}
+.lightbox.active .lightbox-img {
+    transform: scale(1);
+}
+.close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: var(--gold-light);
+    font-size: 50px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 10001;
+}
+.nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--gold-light);
+    font-size: 60px;
+    padding: 20px;
+    cursor: pointer;
+    user-select: none;
+    transition: 0.2s;
+}
+.nav:hover { color: #fff; }
+.prev { left: 10px; }
+.next { right: 10px; }
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+#pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    margin: 40px 0;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 50px;
+}
+#pageInfo {
+    color: var(--gold-light) !important;
+    font-weight: bold;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9), 0px 0px 10px rgba(0, 0, 0, 0.5); 
+    white-space: nowrap;
+}
+/* ==========================================================================
+   8. STOPKA (FOOTER)
+   ========================================================================== */
+footer {
+    background: #1a1612;
+    padding: 40px 5%;
+    color: #f1ede4;
+    border-top: 4px solid var(--gold);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+footer a {
+    text-decoration: none !important;
+}
+footer i {
+    text-decoration: none !important;
+}
+footer i { color: var(--gold); margin-left: 20px; transition: 0.3s; }
+footer i:hover { color: var(--gold-light); transform: scale(1.2); }
+/* ==========================================================================
+   9. RESPONSIVNOŚĆ (MEDIA QUERIES)
+   ========================================================================== */
+@media (max-width: 1024px) {
+    html, body {
+    overscroll-behavior-y: none;
+    }
+    body { 
+        background-attachment: fixed; 
+    }
+    main {
+        display: flex !important;
+        flex-direction: column !important;
+    }
+    #right-column {
+        width: 100% !important;
+        float: none !important;
+    }
+    #okres_liturgiczny_pc {
+        display: none !important;
+    }
+    #okres_liturgiczny_tel {
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        text-align: center !important;
+    }
+    #left-column { 
+        width: 100% !important; 
+        float: none !important;
+    }
+    .hamburger { 
+        display: flex !important; 
+    }
+    .hamburger.active span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
+    .hamburger.active span:nth-child(2) { opacity: 0; }
+    .hamburger.active span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
+    .menu {
+        display: flex !important;
+        position: fixed !important;
+        top: 0 !important;
+        right: -100% !important;
+        width: 280px !important;
+        height: 100vh !important;
+        background: rgba(22, 17, 12, 0.98) !important;
+        z-index: 9999 !important;
+        box-shadow: -10px 0 30px rgba(0,0,0,0.7) !important;
+        border-left: 3px solid var(--gold) !important;
+        transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+        flex-direction: column !important;
+        justify-content: flex-start !important;
+        align-items: stretch !important;
+        flex-wrap: nowrap !important;
+        padding: 80px 20px 20px 20px !important;
+        margin-right: 0;
+    }
+    .menu.active {
+        right: 0 !important;
+    }
+    .menu a {
+       width: 100% !important;  
+        padding: 20px 5px !important; 
+        box-sizing: border-box !important;
+        text-align: center !important;
+        font-size: 14px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        border-right: 1px solid rgba(181, 137, 45, 0.1) !important;
+    }
+    .header-left img {
+        height: 90px !important;
+        top: 25px !important;
+    }
+    .patroni { flex-direction: column; text-align: center; }
+    .patroni img { max-width: 200px; margin: 20px auto; }
+
+    #pagination { flex-wrap: wrap !important; justify-content: center !important; }
+    #pageInfo { width: 100%; text-align: center; order: -1; margin-bottom: 10px; }
+    
+    footer { flex-direction: column !important; gap: 20px !important; text-align: center !important; }
+    footer div { justify-content: center !important; gap: 20px !important; }
+}
+@media (max-width: 768px) {
+    .event {
+        padding: 30px 20px !important;
+    }
+    .event p {
+        font-size: 15px;
+        margin-bottom: 25px; 
+        text-align: left; 
+    }
+    .lightbox-img {
+        max-width: 95%;
+        max-height: 70%;
+    }
+    .nav { font-size: 40px; }
+    .close { top: 10px; right: 20px; font-size: 40px; }
+}
+@media (max-width: 480px) {
+    #pagination {
+        gap: 15px;
+        flex-direction: row;
+    }
+    #pageInfo {
+        font-size: 13px;
+    }
+    #kontakt_numery {
+        display: block;
+    }
+    #kontakt_numery article {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    table{
+        font-size: 12px !important;
+    }
+    table td {
+        padding: 5px !important;
+    }
+}
+@media (max-width: 1024px) {
+    header {
+        background-size: auto 100%; 
+        background-position: center;
+        background-repeat: repeat-x;
+        height: 80px;
+    }
+    .header-left img {
+        height: 100px !important;
+        top: 10px !important;
+    }
+}
+/* ==========================================================================
+   KARTA PATRONA - STYLESHEET
+   ========================================================================== */
+.patron-card {
+    margin-bottom: 40px;
+    background: rgba(22, 17, 12, 0.5);
+    padding: 20px;
+    border-radius: 8px;
+}
+.patron-container {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    padding: 20px 0;
+}
+.short-line {
+    display: inline-block;
+    border-bottom: 2px solid var(--gold) !important;
+    padding-bottom: 5px !important;
+    margin-bottom: 20px !important;
+}
+.gold-frame {
+    width: 250px;
+    height: auto;
+    border: 5px solid var(--gold);
+    border-radius: 15px; /* Zaokrąglone rogi */
+    padding: 5px;
+    background: #fff;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+    flex-shrink: 0;
+}
+.patron-container p {
+    flex: 1;
+    min-width: 300px;
+    text-align: justify;
+    line-height: 1.8;
+    color: #f1ede4;
+    font-size: 16px;
+    letter-spacing: 0.2px;
+    padding: 0 15px;
+}
+@media (max-width: 768px) {
+    .patron-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .patron-container p {
+        text-align: center;
+    }
+    .gold-frame {
+        width: 100%;
+        max-width: 250px;
+    }
+}
