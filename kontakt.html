@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontakt - Bazylika Gorlice</title>
+    <meta name="description" content="Strona internetowa Liturgicznej Służby Ołtarza - Bazylika Gorlice" />
+    <meta name="keywords" content="LSO, Gorlice, Bazylika, Bazilika Gorlice, LSO Bazylika Gorlice, LSO Bazylika, LSO Gorlice, Ministranci bazylika strona, strona, ministranci, bazylika, lektorzy, lektorzy bazylika strona, ministranci strona, lektorzy strona" />
+    <link rel="stylesheet" href="css/style.css" type="text/css" />
+    <link rel="shortcut icon" type="x-icon" href="images/logobeztla.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2DR828VTSQ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-2DR828VTSQ');
+</script>
+<body>
+<div id="header-placeholder"></div>
+<main>
+    <section id="kontakt_numery">
+        <article>
+        <h3>Ks. Stanisław Ziajor</h3>
+        <a href="sms:+48506124751">506 124 751</a>
+        </article>
+        <article>
+        <h3 style="border-left: 0;">An. Dominik Kożuch</h3>
+        <a href="sms:+48517860149">517 860 149</a>
+        </article>
+        <article>
+        <h3 style="border-left: 0;">An. Tadeusz Przybycień</h3>
+        <a href="sms:+48726815107">726 815 107</a>
+        </article>
+    </section>
+    <form id="form" action="https://formsubmit.io/lsobazylika2@gmail.com" method="POST">
+        <h3>Skontaktuj się poprzez formularz </h3>
+        <label for="phone">Numer telefonu:</label><br>
+        <input type="tel" id="phone" name="phone" placeholder="123 123 123" required><br><br>
+        <label for="message">Treść:</label><br>
+        <textarea id="message" name="message" rows="5" cols="30" placeholder="Wpisz treść..." required></textarea><br><br>
+        <input name="_formsubmit_id" type="text" style="display:none" aria-label="System hidden field">
+        <input name="_redirect" type="hidden" id="name" value="https://lsobazylika.github.io/lso/dziekujemy.html">
+        <button type="submit">Wyślij</button>
+    </form>
+</main>
+<div id="footer-placeholder"></div>
+<script src="menu.js"></script>
+<script src="js/stopka_i_naglowek.js"></script>
+<script src="js/core.js"></script>
+<script src="js/menu-dropdowns.js"></script>
+<script>
+const initMobileMenu = setInterval(() => {
+    const header = document.querySelector('header');
+    if (header && !document.querySelector('.hamburger')) {
+        const hamburger = document.createElement('div');
+        hamburger.className = 'hamburger';
+        hamburger.innerHTML = '<span></span><span></span><span></span>';
+        header.appendChild(hamburger);
+        hamburger.addEventListener('click', function() {
+            this.classList.toggle('active');
+            document.querySelector('.menu').classList.toggle('active');
+            document.body.style.overflow = this.classList.contains('active') ? 'hidden' : '';
+        });
+        clearInterval(initMobileMenu);
+    }
+}, 100);
+</script>
+</body>
+</html>
+

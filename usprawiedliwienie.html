@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Usprawiedliwienie - Bazylika Gorlice</title>
+    <meta name="description" content="Strona internetowa Liturgicznej Służby Ołtarza - Bazylika Gorlice" />
+    <meta name="keywords" content="LSO, Gorlice, Bazylika, Bazilika Gorlice, LSO Bazylika Gorlice, LSO Bazylika, LSO Gorlice, Ministranci bazylika strona, strona, ministranci, bazylika, lektorzy, lektorzy bazylika strona, ministranci strona, lektorzy strona" />
+    <link rel="stylesheet" href="css/style.css" type="text/css" />
+    <link rel="shortcut icon" type="x-icon" href="images/logobeztla.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2DR828VTSQ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-2DR828VTSQ');
+</script>
+<body>
+<div id="header-placeholder"></div>
+<main>
+<form id="contact-form">
+  <h3>Usprawiedliw nieobecność na służeniu</h3>
+  <label for="phone">Imię Nazwisko:</label><br>
+  <input name="name" placeholder="Imię Nazwisko" required><br><br>
+<label for="date_field">Data:</label><br>
+<input name="date" id="date_field" type="date" required><br><br>
+<label for="time">Godzina:</label><br>
+<select name="time" id="time" required>
+  <option value="">-- wybierz --</option>
+  <option value="06:00">6:00</option>
+  <option value="06:30">6:30</option>
+  <option value="07:00">7:00</option>
+  <option value="08:00">8:00</option>
+  <option value="08:30">8:30</option>
+  <option value="10:00">10:00</option>
+  <option value="11:30">11:30</option>
+  <option value="13:00">13:00</option>
+  <option value="16:00">16:00</option>
+  <option value="18:00">18:00</option>
+</select><br><br>
+  <label for="message">Powód:</label><br>
+  <textarea name="reason" placeholder="Wpisz treść..." required></textarea><br><br>
+  <button type="submit">Wyślij</button>
+  <p id="form-status" style="margin-top:10px;"></p>
+</form>
+</main>
+<div id="footer-placeholder"></div>
+<script src="menu.js"></script>
+<script src="js/menu_wyswiwetlanie.js"></script>
+<script src="js/stopka_i_naglowek.js"></script>
+<script src="js/usprawiedliwienie.js"></script>
+<script>
+fetch("menu.html")
+.then(res => res.text())
+.then(data => document.getElementById("menu").innerHTML = data);
+</script>
+<script src="js/core.js"></script>
+<script src="js/menu-dropdowns.js"></script>
+<script>
+const initMobileMenu = setInterval(() => {
+    const header = document.querySelector('header');
+    if (header && !document.querySelector('.hamburger')) {
+        const hamburger = document.createElement('div');
+        hamburger.className = 'hamburger';
+        hamburger.innerHTML = '<span></span><span></span><span></span>';
+        header.appendChild(hamburger);
+        hamburger.addEventListener('click', function() {
+            this.classList.toggle('active');
+            document.querySelector('.menu').classList.toggle('active');
+            document.body.style.overflow = this.classList.contains('active') ? 'hidden' : '';
+        });
+        clearInterval(initMobileMenu);
+    }
+}, 100);
+</script>
+</body>
+</html>

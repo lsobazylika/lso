@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asysty - Bazylika Gorlice</title>
+    <meta name="description" content="Strona internetowa Liturgicznej Służby Ołtarza - Bazylika Gorlice" />
+    <meta name="keywords" content="LSO, Gorlice, Bazylika, Bazilika Gorlice, LSO Bazylika Gorlice, LSO Bazylika, LSO Gorlice, Ministranci bazylika strona, strona, ministranci, bazylika, lektorzy, lektorzy bazylika strona, ministranci strona, lektorzy strona" />
+    <link rel="stylesheet" href="css/style.css" type="text/css" />
+    <link rel="shortcut icon" type="x-icon" href="images/logobeztla.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2DR828VTSQ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-2DR828VTSQ');
+</script>
+<body>
+<div id="header-placeholder"></div>
+<main>
+    <section id="kontakt_numery">
+        <h3 style="color: #f1c232; font-size: 30px;">Wielki Czwartek</h3>
+        <p style="font-weight: bold;">
+            <span style="color: #38bdf8;">Liturgia:</span> <br>
+            <span style="text-decoration: underline;">Ceremoniarze:</span> Dominik Kożuch, Jakub Zastępa (B)<br>
+            <span style="text-decoration: underline;">Komentator:</span> Nikodem Cisowski<br>
+            <span style="text-decoration: underline;">Akolici:</span> Dawid Czyżyk, Tadeusz Przybycień	<br>
+            <span style="text-decoration: underline;">Ministranci Kadzidła:</span> Kajetan Musiał, Konrad Kosiba<br>
+            <span style="text-decoration: underline;">Ministranci pontyfikaliów:</span> Mateusz Machowski, Ignacy Markowicz<br><br>
+            <span style="text-decoration: underline;">Ministrant Krzyża:</span> Grzegorz Wojtas<br>
+            <span style="text-decoration: underline;">Ministranci światła:</span> Mikołaj Gniady, Bartosz Szura<br>
+            <span style="text-decoration: underline;">Ministrant Księgi:</span> Grzegorz Bogdan<br>
+            <span style="text-decoration: underline;">Dzwonki na “Chwała…”:</span> Mikołaj Gniady, Grzegorz Wojtas, Mateusz Sieradzki<br>
+            <span style="text-decoration: underline;">I Czytanie:</span> Szymon Bochenek<br>
+            <span style="text-decoration: underline;">Psalm:</span> <br>
+            <span style="text-decoration: underline;">II Czytanie:</span> Grzegorz Bogdan<br>
+            <span style="text-decoration: underline;">Modlitwa Wiernych:</span> Hubert Rąpała<br>
+            <span style="text-decoration: underline;">Po składce:</span> Grzegorz Wojtas, Wojciech Podwika, Marcel Jajko, Bartosz Sieradzki<br>
+            <span style="text-decoration: underline;">Ministranci Ołtarza:</span> Grzegorz Wojtas, Mikołaj Gniady, Mateusz Sieradzki<br><br>
+            <span style="color: #38bdf8;">Procesja do Ciemnicy:</span><br>
+            <span style="text-decoration: underline;">Ministrant Krzyża:</span> Grzegorz Wojtas<br>
+            <span style="text-decoration: underline;">Ministranci światła:</span> Mikołaj Gniady, Bartosz Szura		<br>
+            <span style="text-decoration: underline;">Welony:</span> Wojciech Podwika, Marcel Jajko, Bartosz Sieradzki<br><br>
+            <span style="text-decoration: underline;">Odpowiedzialni za ministrantów:</span> Franciszek Łabuda, Filip Fejkiel <br>
+        </p>
+    </section>
+    <section id="kontakt_numery">
+        <h3 style="color: red; font-size: 30px;">Wielki Piątek</h3>
+    </section>
+    <section id="kontakt_numery">
+        <h3 style="color: #f1c232; font-size: 30px;">Wielka Sobota</h3>
+    </section>
+    <section id="kontakt_numery">
+        <h3 style="color: #f1c232; font-size: 30px;">Niedziela Wielkanocna</h3>
+    </section>
+</main>
+<div id="footer-placeholder"></div>
+<script src="menu.js"></script>
+<script src="js/menu_wyswiwetlanie.js"></script>
+<script src="js/stopka_i_naglowek.js"></script>
+<script>
+fetch("menu.html")
+.then(res => res.text())
+.then(data => document.getElementById("menu").innerHTML = data);
+</script>
+<script src="js/core.js"></script>
+<script src="js/menu-dropdowns.js"></script>
+<script>
+const initMobileMenu = setInterval(() => {
+    const header = document.querySelector('header');
+    if (header && !document.querySelector('.hamburger')) {
+        const hamburger = document.createElement('div');
+        hamburger.className = 'hamburger';
+        hamburger.innerHTML = '<span></span><span></span><span></span>';
+        header.appendChild(hamburger);
+        hamburger.addEventListener('click', function() {
+            this.classList.toggle('active');
+            document.querySelector('.menu').classList.toggle('active');
+            document.body.style.overflow = this.classList.contains('active') ? 'hidden' : '';
+        });
+        clearInterval(initMobileMenu);
+    }
+}, 100);
+</script>
+</body>
+</html>
+
